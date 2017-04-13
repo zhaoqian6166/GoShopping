@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <com.bawei.goshopping.util.XCRoundImageView
+            android:id="@+id/user_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center_horizontal"
+            />
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:layout_width="100dp"
+            android:background="@mipmap/user_info_bg"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/user_login"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="待付款"
+                android:drawableTop="@mipmap/wait_pay"
+                android:gravity="center_horizontal"
+                />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="待发货"
+                android:drawableTop="@mipmap/wait_send_good"
+               android:gravity="center_horizontal"
+                />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="待收货"
+                android:drawableTop="@mipmap/wait_receive_good"
+                android:gravity="center_horizontal"
+                />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="待评价"
+                android:drawableTop="@mipmap/wait_evaluate"
+                android:gravity="center_horizontal"
+                />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="退款"
+                android:drawableTop="@mipmap/wait_refund"
+                android:gravity="center_horizontal"
+                />
+
+
+        </RadioGroup>
+
+    </LinearLayout>
+    下部分布局
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        >
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
