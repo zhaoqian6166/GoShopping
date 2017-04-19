@@ -9,26 +9,41 @@
         android:layout_weight="1"
         android:orientation="vertical"
         >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/setting_selector"
+
+            />
         <com.bawei.goshopping.util.XCRoundImageView
+            android:layout_marginTop="15dp"
             android:id="@+id/user_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/user_icon_default"
             android:layout_gravity="center_horizontal"
             />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
         <Button
             android:layout_gravity="center_horizontal"
             android:layout_width="100dp"
             android:background="@mipmap/user_info_bg"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="登录"
             android:textColor="@color/colorPrimaryDark"
             android:id="@+id/user_login"
             />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:id="@+id/user_rg"
             >
             <RadioButton
                 android:layout_width="0dp"
@@ -84,13 +99,67 @@
         </RadioGroup>
 
     </LinearLayout>
-    下部分布局
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:orientation="vertical"
         >
+        <TextView
+            android:layout_width="match_parent"
+
+            android:text="     我的订单"
+            android:drawableLeft="@mipmap/my_order_icon"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:text="     我的现金券"
+            android:drawableLeft="@mipmap/my_coupon_icon"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="     我收藏的商品"
+            android:drawableLeft="@mipmap/my_collection_icon"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:text="     我的抽奖单"
+            android:drawableLeft="@mipmap/my_lottery_icon"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:text="     联系客服"
+            android:drawableLeft="@mipmap/personal_center_contact_service_icon"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:text="     兑换专区"
+            android:drawableLeft="@mipmap/my_lottery_icon"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="     刷脸测尺寸"
+            android:drawableLeft="@mipmap/my_coupon_icon"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            />
 
 
 
