@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    详情图片
+    <com.youth.banner.Banner
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:id="@+id/detail_banner"
+        ></com.youth.banner.Banner>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    产品名称
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detail_name"
+        android:text="面膜"
+
+        />
+    价格  收藏
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="现在价格        "
+            android:id="@+id/detail_shopPrice"
+
+            />
+        <TextView
+            android:textColor="#808080"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标价"
+            android:id="@+id/detail_markPrice"
+
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        收藏图片选择器
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_store"
+            android:src="@drawable/store_selector"
+
+            />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="20dp"
+        android:layout_height="50dp"
+        android:text="产品详情"
+        android:textColor="@drawable/login_text_color_selector"
+        android:gravity="center"
+        />
+
+</LinearLayout>
