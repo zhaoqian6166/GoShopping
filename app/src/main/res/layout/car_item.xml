@@ -6,8 +6,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/car_item_check"
-       android:layout_gravity="center_vertical"
-        android:button="@drawable/shoppingSelect_selector"
+        android:layout_gravity="center_vertical"
+        android:button="@drawable/shop_selector"
         />
     <ImageView
         android:layout_width="150dp"
@@ -55,6 +55,7 @@
        
    </LinearLayout>
     <Button
+        android:id="@+id/car_item_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@mipmap/dialog_close"

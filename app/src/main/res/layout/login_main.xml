@@ -24,8 +24,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="注册"
+            android:text="注册    "
             android:textColor="#FC6B87"
+            android:id="@+id/login_regist"
             />
         
     </LinearLayout>
@@ -33,8 +34,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp" />
-    <LinearLayout
-        android:layout_width="400dp"
+   <!-- <LinearLayout
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
 
         android:orientation="horizontal"
@@ -62,16 +63,17 @@
             android:textColor="@drawable/login_text_color_selector"
             android:gravity="center_horizontal"
             />
-    </LinearLayout>
+    </LinearLayout>-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="30dp" />
   输入框
     <EditText
-    android:layout_width="400dp"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:hint="手机号" android:textSize="20sp"
+    android:hint="用户名"
+        android:textSize="20sp"
     android:id="@+id/login_edit1"
 
     />
@@ -83,7 +85,7 @@
 
     <EditText
         android:textSize="20sp"
-        android:layout_width="400dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:hint="密码"
@@ -95,7 +97,7 @@
         android:layout_height="40dp" />
 
     <Button
-        android:layout_width="400dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="登   录"
@@ -113,10 +115,10 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="200dp" />
     第三方登录
     <LinearLayout
-        android:layout_width="400dp"
+        android:layout_width="300dp"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
