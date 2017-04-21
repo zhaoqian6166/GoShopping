@@ -10,9 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bawei.goshopping.R;
+import com.bawei.goshopping.bean.ClassifyBean;
 import com.bawei.goshopping.bean.Zqbean;
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,12 +22,12 @@ import java.util.List;
  * <p>
  * 类的用途：
  */
-public class GridAdapter extends RecyclerView.Adapter<GridAdapter.MyViewHolders>{
-    private List<Zqbean.DataBean.DefaultGoodsListBean> list;
+public class GridAdapterStar extends RecyclerView.Adapter<GridAdapterStar.MyViewHolders>{
+    private ArrayList<ClassifyBean.GoodsBrief> list;
     private LayoutInflater inflater;
     private Context context;
 
-    public GridAdapter(List<Zqbean.DataBean.DefaultGoodsListBean> list, Context context) {
+    public GridAdapterStar( ArrayList<ClassifyBean.GoodsBrief> list, Context context) {
         this.list = list;
         this.context = context;
         inflater=LayoutInflater.from(context);

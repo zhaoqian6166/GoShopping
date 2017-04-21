@@ -5,8 +5,54 @@
     android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="购物车"
+        android:layout_height="wrap_content"
+        android:text="    我的商品"
+        android:textSize="20sp"
         />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/shoppingcar_list"
+        ></android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shopping_selectAll"
+            android:layout_gravity="center_vertical"
+            android:button="@drawable/shoppingSelect_selector"
+            />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="合计:"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/shopping_priceAll"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="结算   "
+            android:layout_gravity="right"
+            android:id="@+id/shopping_count"
+
+            />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

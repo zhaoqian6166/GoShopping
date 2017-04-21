@@ -2,9 +2,11 @@ package com.bawei.goshopping.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,6 +40,9 @@ public class DetailActivity extends Activity {
     private TextView name;
     private TextView detail_shopPrice;
     private TextView detail_markPrice;
+    private Button detail_store;
+    private SharedPreferences.Editor edit;
+    private SharedPreferences config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,7 @@ public class DetailActivity extends Activity {
         url = "http://m.yunifang.com/yunifang/mobile/goods/detail?random=46389&encode=70ed2ed2facd7a812ef46717b37148d6&id="+id;
         initView();
         getData();
+        setViewClick();
     }
 
     private void initView() {
@@ -57,10 +63,52 @@ public class DetailActivity extends Activity {
         name = (TextView) titleView.findViewById(R.id.detail_name);
         detail_shopPrice = (TextView) titleView.findViewById(R.id.detail_shopPrice);
         detail_markPrice = (TextView) titleView.findViewById(R.id.detail_markPrice);
-        ImageView detail_store= (ImageView) titleView.findViewById(R.id.detail_store);
+        detail_store = (Button) titleView.findViewById(R.id.detail_store);
         banner.setImageLoader(new Image());
+        config = getSharedPreferences("config", MODE_PRIVATE);
+        edit = config.edit();
+
 //设置图片集合
 
+    }
+    void setViewClick(){
+        //加入购物车的点击
+        detail_store.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToCar();
+            }
+        });
+    }
+    void addToCar(){
+        boolean isLogin = config.getBoolean("isLogin", false);
+        if (isLogin){//如果是登录状态  那么就加入购物车
+            int userId = config.getInt("userId", 1);
+            String url="http://169.254.217.5:8080/bullking1/cart";
+            OkHttpClientManager.postAsyn(url, new OkHttpClientManager.ResultCallback<String>() {
+                @Override
+                public void onError(Request request, Exception e) {
+
+                }
+
+                @Override
+                public void onResponse(String response) {
+
+                }
+            },new OkHttpClientManager.Param[]{
+                    new OkHttpClientManager.Param("productID", 12+""),
+                    new OkHttpClientManager.Param("count", 1+""),
+                    new OkHttpClientManager.Param("price ", 2.3+""),
+                    new OkHttpClientManager.Param("name", "123"),
+                    new OkHttpClientManager.Param("userID", userId+""),
+                    new OkHttpClientManager.Param("pic", "123")
+            });
+
+        }else{
+            //如果没有登录  跳转到登录界面
+            Intent intent=new Intent(DetailActivity.this,LoginActivity.class);
+            startActivity(intent);
+        }
     }
     void getData(){
         OkHttpClientManager.getAsyn(url, new OkHttpClientManager.ResultCallback<Zq>() {

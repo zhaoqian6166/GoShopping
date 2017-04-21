@@ -46,11 +46,12 @@
             android:layout_weight="1"
             />
         收藏图片选择器
-        <ImageView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detail_store"
-            android:src="@drawable/store_selector"
+            android:text="加入购物车"
+            android:background="@drawable/addcar_selector"
 
             />
         <ImageView
