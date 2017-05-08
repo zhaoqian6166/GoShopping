@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.bawei.goshopping.R;
 import com.bawei.goshopping.activity.LoginActivity;
@@ -27,6 +28,8 @@ public class User extends Fragment {
     private Button regin;
     private String userName;
     private SharedPreferences config;
+    private TextView unregin;
+    private SharedPreferences.Editor edit;
 
     @Nullable
     @Override
@@ -41,11 +44,15 @@ public class User extends Fragment {
 
     private void initView() {
         login = (Button) view.findViewById(R.id.user_login);
-       // regin = (Button) view.findViewById(R.id.user_regin);
-        config = getContext().getSharedPreferences("config", Context.MODE_PRIVATE);
+        unregin = (TextView) view.findViewById(R.id.user_unregin);
 
-            if (config.getBoolean("isLogin",false)){
-                login.setText(config.getString("userName","登录"));
+        // regin = (Button) view.findViewById(R.id.user_regin);
+
+        config = getContext().getSharedPreferences("config", Context.MODE_PRIVATE);
+        edit = config.edit();
+
+        if (config.getBoolean("isLogin",false)){
+                login.setText(this.config.getString("userName","登录"));
             }
 
     }
@@ -56,6 +63,14 @@ public class User extends Fragment {
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(), LoginActivity.class);
                 startActivityForResult(intent,100);
+            }
+        });
+        unregin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edit.putBoolean("isLogin",false);
+                edit.putInt("userId",1);
+                edit.commit();
             }
         });
 

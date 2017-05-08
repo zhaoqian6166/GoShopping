@@ -3,6 +3,7 @@ package com.bawei.goshopping.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.bawei.goshopping.R;
 import com.bawei.goshopping.adapter.ListAdapter;
 import com.bawei.goshopping.bean.GoodsImg;
 import com.bawei.goshopping.bean.LoginBean;
+import com.bawei.goshopping.bean.MyGoodsBean;
 import com.bawei.goshopping.bean.Zq;
 import com.bawei.goshopping.util.GsonUtil;
 import com.bawei.goshopping.util.Image;
@@ -45,6 +47,7 @@ public class DetailActivity extends Activity {
     private Button detail_store;
     private SharedPreferences.Editor edit;
     private SharedPreferences config;
+    private Button buy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,7 @@ public class DetailActivity extends Activity {
         detail_shopPrice = (TextView) titleView.findViewById(R.id.detail_shopPrice);
         detail_markPrice = (TextView) titleView.findViewById(R.id.detail_markPrice);
         detail_store = (Button) titleView.findViewById(R.id.detail_store);
+        buy = (Button) titleView.findViewById(R.id.detail_buy);
         banner.setImageLoader(new Image());
         config = getSharedPreferences("config", MODE_PRIVATE);
     //    edit = config.edit();
@@ -115,6 +119,10 @@ public class DetailActivity extends Activity {
     void getData(){
         OkHttpClientManager.getAsyn(url, new OkHttpClientManager.ResultCallback<Zq>() {
 
+            private String goods_img;
+            private String goods_name;
+            private double market_price;
+
             @Override
             public void onError(Request request, Exception e) {
 
@@ -127,22 +135,55 @@ public class DetailActivity extends Activity {
                 setView(response);//设置头布局中价格 商品名等控件
                 setBanner(gallery);//设置轮播
                 setList(response);//设置listview
-                final double market_price =  response.data.goods.market_price;
-                final String goods_name = response.data.goods.goods_name;
-                final String goods_img = response.data.goods.goods_img;
+                market_price = response.data.goods.market_price;
+                goods_name = response.data.goods.goods_name;
+                goods_img = response.data.goods.goods_img;
                 //response.data.goods.         id
                 detail_store.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.e("测试添加数据","价格："+market_price+"-名字：-"+goods_name+"-图片：-"+goods_img+"-id:-"+id);
-                        addToCar(market_price,goods_name,goods_img,id);
+                        detail_store.setBackgroundResource(R.mipmap.red);
+                        buy.setBackgroundResource(R.mipmap.gray);
+                        Log.e("测试添加数据","价格："+ market_price +"-名字：-"+ goods_name +"-图片：-"+ goods_img +"-id:-"+id);
+                        addToCar(market_price, goods_name, goods_img,id);
                     }
                 });
+                buy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        goPay(market_price, goods_name, goods_img);
+                    }
+                });
+
 
             }
         });
 
 
+    }
+    void goPay(double market_price,String goods_name,String goods_img){
+        boolean isLogin = config.getBoolean("isLogin", false);
+        if (isLogin){
+        buy.setBackgroundResource(R.mipmap.red);
+        detail_store.setBackgroundResource(R.mipmap.gray);
+        //点击立即购买后
+        ArrayList<MyGoodsBean.CartItemListBean> list=new ArrayList<MyGoodsBean.CartItemListBean>();
+        MyGoodsBean.CartItemListBean bean = new MyGoodsBean.CartItemListBean();
+        bean.price=market_price;
+        bean.name=goods_name;
+        bean.pic=goods_img;
+        bean.productID=Integer.decode(id);
+
+        list.add(bean);
+        Intent intent=new Intent(DetailActivity.this,PayActivity.class);
+        intent.putExtra("data",list);
+        intent.putExtra("count",market_price);
+        startActivity(intent);
+        }else{
+            //如果没有登录  跳转到登录界面
+            Intent intent=new Intent(DetailActivity.this,LoginActivity.class);
+            startActivity(intent);
+        }
     }
     void setList(Zq response){
         String goods_desc = response.data.goods.goods_desc;
@@ -172,4 +213,6 @@ public class DetailActivity extends Activity {
         banner.start();
 
     }
+
+
 }

@@ -8,12 +8,20 @@
         android:text="    我的商品"
         android:textSize="20sp"
         />
-    <android.support.v7.widget.RecyclerView
+   <!-- <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:id="@+id/shoppingcar_list"
-        ></android.support.v7.widget.RecyclerView>
+        ></android.support.v7.widget.RecyclerView>-->
+    <com.bawei.goshopping.util.ItemRemoveRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/shoppingcar_list"
+
+        ></com.bawei.goshopping.util.ItemRemoveRecyclerView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,7 +60,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="结算   "
+            android:text="确认订单   "
             android:layout_gravity="right"
             android:id="@+id/shopping_count"
             android:background="#FF6300"

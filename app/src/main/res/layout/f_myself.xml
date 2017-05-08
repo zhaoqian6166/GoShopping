@@ -11,7 +11,7 @@
 
 
         <com.bawei.goshopping.util.XCRoundImageView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:id="@+id/user_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,17 +102,16 @@
         >
         <TextView
             android:layout_width="match_parent"
-
             android:text="     我的订单"
             android:drawableLeft="@mipmap/my_order_icon"
-            android:layout_height="60dp"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             />
         <TextView
             android:layout_width="match_parent"
             android:text="     我的现金券"
             android:drawableLeft="@mipmap/my_coupon_icon"
-            android:layout_height="60dp"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             />
 
@@ -121,19 +120,19 @@
             android:layout_width="match_parent"
             android:text="     我收藏的商品"
             android:drawableLeft="@mipmap/my_collection_icon"
-            android:layout_height="60dp"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             android:text="     我的抽奖单"
             android:drawableLeft="@mipmap/my_lottery_icon"
             />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             android:text="     联系客服"
             android:drawableLeft="@mipmap/personal_center_contact_service_icon"
@@ -141,7 +140,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             android:text="     兑换专区"
             android:drawableLeft="@mipmap/my_lottery_icon"
@@ -151,7 +150,15 @@
             android:layout_width="match_parent"
             android:text="     刷脸测尺寸"
             android:drawableLeft="@mipmap/my_coupon_icon"
-            android:layout_height="60dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:id="@+id/user_unregin"
+            android:layout_width="match_parent"
+            android:text="     注销"
+            android:drawableLeft="@mipmap/settings_normal"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             />
 

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bawei.goshopping.R;
@@ -30,14 +31,14 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.MyViewHolder> {
     private LayoutInflater inflater;
     private Context context;
     private SetSelect setSelect;
-    private ItemDelete itemDelete;
-    public interface ItemDelete{
+   // private ItemDelete itemDelete;
+  /*  public interface ItemDelete{
         void onItemDelete(int position,int id);
     }
     public void setItemDelete(ItemDelete itemDelete){
         this.itemDelete=itemDelete;
 
-    }
+    }*/
 
     public interface SetSelect{
         void onSelect(int position,boolean isSelect);
@@ -63,7 +64,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
 //        holder.markPrice.setText();getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         holder.shopPrice.setText("  ￥ "+list.get(position).price+"   ");
         holder.name.setText(list.get(position).name);
@@ -84,12 +85,13 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.MyViewHolder> {
                 setSelect.onSelect(position,list.get(position).isChecked);
             }
         });
-        holder.delete.setOnClickListener(new View.OnClickListener() {
+       /* holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                list.get(position).isChecked=holder.check.isChecked();
                 itemDelete.onItemDelete(position,list.get(position).productID);
             }
-        });
+        });*/
 
 
 
@@ -100,14 +102,15 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.MyViewHolder> {
         return list.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private final ImageView img;
-        private final TextView name;
-        private final TextView shopPrice;
-        private final TextView count;
-        private final CheckBox check;
-        private final Button delete;
+        public final ImageView img;
+        public final TextView name;
+        public final TextView shopPrice;
+        public final TextView count;
+        public final CheckBox check;
+        public final Button delete;
+        public final LinearLayout layout;
 
 
         public MyViewHolder(View itemView) {
@@ -118,8 +121,14 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.MyViewHolder> {
             count = (TextView) itemView.findViewById(R.id.car_item_count);
             check = (CheckBox) itemView.findViewById(R.id.car_item_check);
             delete = (Button) itemView.findViewById(R.id.car_item_delete);
+            layout = (LinearLayout) itemView.findViewById(R.id.car_item_ll);
+         //   Button deleteButton= (Button) itemView.findViewById(R.id.car_item_deletebutton);
 
 
         }
+    }
+    public void removeItem(int position) {
+        list.remove(position);
+        notifyDataSetChanged();
     }
 }

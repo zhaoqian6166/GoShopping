@@ -3,6 +3,10 @@
     package="com.bawei.goshopping">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +25,17 @@
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".activity.DetailActivity"/>
         <activity android:name=".activity.RegistActivity"/>
+        <activity android:name=".activity.PayActivity"/>
+        <activity android:name=".activity.ChoosePayStyleActivity"/>
+
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind">
+        </activity>
+
+
     </application>
 
 </manifest>

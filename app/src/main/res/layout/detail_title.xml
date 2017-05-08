@@ -48,12 +48,17 @@
         收藏图片选择器
         <!--android:background="@drawable/addcar_selector"-->
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
             android:id="@+id/detail_store"
             android:text="加入购物车"
+            />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/detail_buy"
 
-
+            android:text="直接购买"
             />
         <ImageView
             android:layout_width="20dp"

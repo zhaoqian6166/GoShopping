@@ -3,10 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="请输入商品名称"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,19 +14,23 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
                     android:layout_height="300dp"
                     android:id="@+id/mianmo"
                     android:src="@mipmap/classify_facial_mask" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -54,7 +55,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -77,17 +79,21 @@
                 </LinearLayout>
 
             </LinearLayout>
+          <ImageView
+              android:background="#F9F9F9"
+              android:layout_width="match_parent"
+              android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:text="---按功效---"
+                android:text="~~~ 按功效 ~~~"
                 android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:text="美丽从选对产品开始"
                 android:textSize="15dp" />
@@ -131,17 +137,21 @@
                     android:layout_weight="1"
                     android:src="@mipmap/classify_firming" />
             </LinearLayout>
+            <ImageView
+                android:background="#F9F9F9"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:text="-- 按肤质 --"
+                android:text="~~~ 按肤质 ~~~"
                 android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:text="适合自己的才是最好的"
                 android:textSize="15dp" />
@@ -157,10 +167,10 @@
                 <Button
                     android:id="@+id/hunhefuzhi"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="#B5E61D"
+                    android:background="#DEDEB9"
                     android:gravity="center"
                     android:text="#混合性肤质#" />
                 <View
@@ -169,9 +179,9 @@
                 <Button
                     android:id="@+id/zhongxing"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:background="#FFAEC9"
+                    android:background="#EED4C2"
                     android:text="#中性肤质#" />
             </LinearLayout>
 
@@ -184,9 +194,9 @@
                 <Button
                     android:id="@+id/ganxing"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:background="#C8BFE7"
+                    android:background="#D4D7F7"
                     android:text="#干性肤质#" />
 <View
     android:layout_width="5dp"
@@ -195,9 +205,9 @@
                 <Button
                     android:id="@+id/youxingfu"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:background="#97D827"
+                    android:background="#D1E1C3"
                     android:text="#油性肤质#" />
             </LinearLayout>
 
@@ -210,9 +220,9 @@
                 <Button
                     android:id="@+id/doudou"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:background="#FFAEC9"
+                    android:background="#F1D2CB"
                     android:text="#痘痘肤质#" />
                 <View
                     android:layout_width="5dp"
@@ -220,15 +230,18 @@
                 <Button
                     android:id="@+id/mingan"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:background="#99D9EA"
+                    android:background="#BFF1EC"
                     android:text="#敏感肤质#" />
             </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:text="-- 明星产品 --"
                 android:textSize="25dp" />

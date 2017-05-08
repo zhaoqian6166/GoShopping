@@ -76,6 +76,7 @@ public class LoginActivity extends Activity{
 
     void getData(final String s_name, String s_pwd){
         String url="http://169.254.217.5:8080/bullking1/login";
+       // String url="http://20.1.2.247:8080/bullking1/login";
         OkHttpClientManager.postAsyn(url, new OkHttpClientManager.ResultCallback<LoginBean>() {
             @Override
             public void onError(Request request, Exception e) {
